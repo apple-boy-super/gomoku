@@ -1,7 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-
 #include<string.h>
 
 int win_jud(int goban[][14], int a, int b);
@@ -14,7 +12,7 @@ int main()
     int s,t;
     int x,y;
     int flag=0;
-    int result;
+    int result=0;
     int i;
 
     /*データの入力*/
@@ -28,7 +26,7 @@ int main()
             goban[x][y] = 1;
 
 
-            /*データの出力*/
+    /*データの出力*/
             for( i = 1; i < N; i++ ){
                 printf(" %3d",i);
             }
@@ -46,10 +44,10 @@ int main()
                 flag = 1;
 
     /*win_jud関数*/
-        result = win_jud(goban, x, y);
-        if(result == 1){
-            flag = 2;
-        }
+            result = win_jud(goban, x, y);
+            if(result == 1){
+                flag = 2;
+            }
     /*_______________________________________________________________________________________________*/
 
         }else if(flag == 1){
@@ -64,6 +62,7 @@ int main()
             for( i = 1; i < N; i++ ){
                 printf(" %3d",i);
             }
+
             printf("\n");
 
             for(s = 1; s < N; s++){
@@ -76,16 +75,18 @@ int main()
             }
 
                 flag = 0;
-        }
         
     /*win_jud関数*/
-        result = win_jud(goban, x, y);
-        
-        if(result == 1){
-            flag = 2;
+            result = win_jud(goban, x, y);        
+            if(result == 1){
+                flag = 2;
+                }
         }
     }
     
+
+    printf("End loop\n");
+
     return 0;
 
 }

@@ -28,14 +28,18 @@ int main()
 
     /*データの出力*/
             for( i = 1; i < N; i++ ){
-                printf(" %3d",i);
+                printf(" %2d ",i);
             }
             printf("\n");
 
             for(s = 1; s < N; s++){
-                    printf("%2d",s);
-                for(t = 1; t < 14; t++){
-                    printf("|%2d ",goban[s][t]);
+                printf("%2d",s);
+                for(t = 1; t < N; t++){
+                    switch(goban[s][t]){
+                        case 1:     printf("| O "); break;
+                        case -1:    printf("| X "); break;
+                        case 0:     printf("|   "); break;       
+                    }
                 }
                     printf(" | ");
                     printf("\n");
@@ -47,6 +51,7 @@ int main()
             result = win_jud(goban, x, y);
             if(result == 1){
                 flag = 2;
+                printf("Winnnnnnnnnnnnnnnnnnnnnner maruuuuuuuuuuuuuuuuuuuuuuuu\n");
             }
     /*_______________________________________________________________________________________________*/
 
@@ -67,8 +72,12 @@ int main()
 
             for(s = 1; s < N; s++){
                 printf("%2d",s);
-                for(t = 1; t < N; t++){ 
-                    printf("|%2d ",goban[s][t]);
+                for(t = 1; t < N; t++){
+                    switch(goban[s][t]){
+                        case 1:     printf("| O "); break;
+                        case -1:    printf("| X "); break;
+                        case 0:     printf("|   "); break;       
+                    }
                 }
                 printf(" | ");
                 printf("\n");
@@ -80,13 +89,10 @@ int main()
             result = win_jud(goban, x, y);        
             if(result == 1){
                 flag = 2;
+                printf("Winnnnnnnnnnnnnnnnnnnnnner batuuuuuuuuuuuuuuuuuuuuuuu\n");
                 }
         }
     }
-    
-
-    printf("End loop\n");
-
     return 0;
 
 }
